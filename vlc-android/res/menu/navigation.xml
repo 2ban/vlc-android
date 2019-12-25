@@ -7,6 +7,10 @@
         android:orderInCategory="1">
 
         <item
+            android:id="@+id/nav_cloud"
+            android:title="@string/cloud"
+            android:icon="@drawable/ic_menu_stream" />
+        <item
             android:id="@+id/nav_video"
             android:title="@string/video"
             android:icon="@drawable/ic_menu_video" />

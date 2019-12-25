@@ -693,4 +693,5 @@
     <string name="jump_to">Переход к</string>
     <string name="show_video_thumbnails_summary">Показывать в списках видео в миниатюрах</string>
     <string name="show_video_thumbnails">Видео в миниатюрах</string>
+    <string name="cloud">Cloud</string>
 </resources>

@@ -709,4 +709,5 @@
     <string name="video_group_size_summary">按頭 %s 個字母分組</string>
     <string name="video_group_size">按名稱將影片分組</string>
     <string name="url_copied_to_clipboard">Url 已複製到剪貼簿</string>
+    <string name="cloud">Cloud</string>
 </resources>

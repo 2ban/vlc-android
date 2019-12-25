@@ -709,4 +709,5 @@
     <string name="video_group_size_summary">Kelompok mengikut %s abjad pertama</string>
     <string name="video_group_size">Kelompok video mengikut nama</string>
     <string name="url_copied_to_clipboard">Url disalin ke dalam papan keratan</string>
+    <string name="cloud">Cloud</string>
 </resources>

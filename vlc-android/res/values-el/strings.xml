@@ -615,4 +615,5 @@
     <string name="onboarding_scan_whole">Το VLC θα σαρώνει όλη την SD Card μου</string>
     <string name="onboarding_scan_customize">Επίτρεψέ μου να επιλέξω ποιους φακέλους θα σαρώνει το VLC</string>
     <string name="light_theme">Ανοιχτό θέμα</string>
+    <string name="cloud">Cloud</string>
 </resources>

@@ -407,4 +407,5 @@
     <string name="dialog_sd_wizard">காண்பி</string>
     <string name="renderers_disconnect">துண்டி</string>
     <string name="next">அடுத்து</string>
+    <string name="cloud">Cloud</string>
 </resources>

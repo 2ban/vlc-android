@@ -707,4 +707,5 @@
     <string name="report_a_bug">报告 bug</string>
     <string name="report_a_crash">报告崩溃事件</string>
     <string name="describe_crash">请描述崩溃发生时的情况</string>
+    <string name="cloud">Cloud</string>
 </resources>

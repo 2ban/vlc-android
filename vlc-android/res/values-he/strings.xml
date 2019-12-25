@@ -730,4 +730,5 @@
     <string name="video_group_size_summary">קיבוץ לפי %s אותיות ראשונות</string>
     <string name="video_group_size">קיבוץ סרטונים לפי שם</string>
     <string name="url_copied_to_clipboard">הכתובת הועתקה ללוח הגזירים</string>
+    <string name="cloud">Cloud</string>
 </resources>

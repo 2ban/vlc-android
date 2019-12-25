@@ -780,4 +780,5 @@
     <string name="clear_media_db_warning">You will lose your progresses and the playlists you created.\n%s</string>
     <string name="abrepeat_add_first_marker">Set start point</string>
     <string name="abrepeat_add_second_marker">Set end point</string>
+    <string name="cloud">Cloud</string>
 </resources>

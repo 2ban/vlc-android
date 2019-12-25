@@ -690,4 +690,5 @@
     <string name="appended">Traccia(e) aghjunta(e) à a fine</string>
     <string name="inserted">Traccia(e) framessa(e)</string>
     <string name="remove_current">Caccià l’attuale</string>
+    <string name="cloud">Cloud</string>
 </resources>

@@ -79,7 +79,7 @@ android {
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = ["room.schemaLocation": "$projectDir/assets/schemas".toString(),
-                             "room.incremental":"true"]
+                             "room.incremental"   : "true"]
             }
         }
     }
@@ -242,6 +242,8 @@ task buildTranslationArray {
 preBuild.dependsOn buildTranslationArray
 
 dependencies {
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
     devImplementation project(':libvlc')
     devImplementation project(':medialibrary')
     debugImplementation "org.videolan.android:libvlc-all:$rootProject.ext.libvlcVersion"
@@ -311,8 +313,9 @@ dependencies {
 
 
 static def getNextApiUrl(project) {
-    if (project.hasProperty('moviepedia_api_url')) return project.properties['moviepedia_api_url'] else return  "https://localhost/"
+    if (project.hasProperty('moviepedia_api_url')) return project.properties['moviepedia_api_url'] else return "https://localhost/"
 }
+
 static def buildTime() {
     return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
 }

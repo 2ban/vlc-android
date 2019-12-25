@@ -716,4 +716,5 @@
     <string name="video_group_size_summary">Agrupa impreende sas primas %s lìteras</string>
     <string name="video_group_size">Agrupa sos vìdeos pro nùmene</string>
     <string name="url_copied_to_clipboard">Url copiadu in punta de billete</string>
+    <string name="cloud">Cloud</string>
 </resources>

@@ -716,4 +716,5 @@
     <string name="video_group_size_summary">A(z) %s csoportosítása az első betűk szerint</string>
     <string name="video_group_size">Videók csoportosítása név szerint</string>
     <string name="url_copied_to_clipboard">URL a vágólapra másolva</string>
+    <string name="cloud">Cloud</string>
 </resources>

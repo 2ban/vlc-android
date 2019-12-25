@@ -709,4 +709,5 @@
     <string name="video_group_size_summary">最初の %s 文字でグループ化</string>
     <string name="video_group_size">名前でビデオをグループ化</string>
     <string name="url_copied_to_clipboard">クリップボードにURLがコピーされました</string>
+    <string name="cloud">Cloud</string>
 </resources>

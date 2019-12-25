@@ -245,4 +245,5 @@
     <string name="browser_quick_access">Ātrā piekļuve</string>
     <string name="browser_storages">Glabātuves</string>
     <string name="next">Nākošais</string>
+    <string name="cloud">Cloud</string>
 </resources>

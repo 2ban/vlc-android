@@ -314,4 +314,5 @@
     <string name="next">Selanjutya</string>
     <string name="ctx_player_audio_track">Trek audio</string>
     <string name="ctx_player_subs_track">Trek terjemahan</string>
+    <string name="cloud">Cloud</string>
 </resources>

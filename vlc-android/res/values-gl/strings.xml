@@ -690,4 +690,5 @@
     <string name="appended">Pista(s) anexadas</string>
     <string name="inserted">Pista(s) inseridas</string>
     <string name="remove_current">Retirar a actual</string>
+    <string name="cloud">Cloud</string>
 </resources>

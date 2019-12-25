@@ -730,4 +730,5 @@
     <string name="video_group_size_summary">Zoskupiť podľa prvých %s písmen</string>
     <string name="video_group_size">Zoskupiť videá podľa názvu</string>
     <string name="url_copied_to_clipboard">Adresa URL bola skopírovaná do schránky</string>
+    <string name="cloud">Cloud</string>
 </resources>

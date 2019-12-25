@@ -689,4 +689,5 @@
     <string name="reset">Endurstilla</string>
     <string name="appended">Lagi/lögum bætt við</string>
     <string name="inserted">Lag/lög sett inn</string>
+    <string name="cloud">Cloud</string>
 </resources>

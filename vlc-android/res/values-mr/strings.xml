@@ -250,4 +250,5 @@
     <string name="drawer_open">नेव्हिगेशन ड्रॉवर उघडा</string>
     <string name="drawer_close">नेव्हिगेशन ड्रॉवर बंद करा</string>
     <string name="next">पुढील</string>
+    <string name="cloud">Cloud</string>
 </resources>

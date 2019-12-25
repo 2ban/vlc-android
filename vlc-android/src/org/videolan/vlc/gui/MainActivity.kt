@@ -44,7 +44,9 @@ import org.videolan.vlc.extensions.ExtensionManagerService
 import org.videolan.vlc.extensions.ExtensionsManager
 import org.videolan.vlc.gui.audio.AudioBrowserFragment
 import org.videolan.vlc.gui.browser.BaseBrowserFragment
+import org.videolan.vlc.gui.browser.CloudFragment
 import org.videolan.vlc.gui.browser.ExtensionBrowser
+import org.videolan.vlc.gui.browser.dummy.DummyContent
 import org.videolan.vlc.gui.helpers.INavigator
 import org.videolan.vlc.gui.helpers.Navigator
 import org.videolan.vlc.gui.helpers.UiTools
@@ -61,8 +63,12 @@ private const val TAG = "VLC/MainActivity"
 @ObsoleteCoroutinesApi
 class MainActivity : ContentActivity(),
         ExtensionManagerService.ExtensionManagerActivity,
-        INavigator by Navigator()
+        INavigator by Navigator(), CloudFragment.OnListFragmentInteractionListener
 {
+    override fun onListFragmentInteraction(item: DummyContent.DummyItem?) {
+
+    }
+
     var refreshing: Boolean = false
         set(value) {
             mainLoading.visibility = if (value) View.VISIBLE else View.GONE

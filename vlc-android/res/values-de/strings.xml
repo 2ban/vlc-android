@@ -716,4 +716,5 @@
     <string name="video_group_size_summary">Gruppierung entsprechend der %s ersten Zeichen</string>
     <string name="video_group_size">Videos nach Name gruppe</string>
     <string name="url_copied_to_clipboard">URL in die Zwischenablage kopiert</string>
+    <string name="cloud">Cloud</string>
 </resources>

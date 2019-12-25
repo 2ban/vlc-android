@@ -716,4 +716,5 @@
     <string name="video_group_size_summary">Groeperen op eerste %s letters</string>
     <string name="video_group_size">Video\'s groeperen op naam</string>
     <string name="url_copied_to_clipboard">URL naar klembord gekopieerd</string>
+    <string name="cloud">Cloud</string>
 </resources>

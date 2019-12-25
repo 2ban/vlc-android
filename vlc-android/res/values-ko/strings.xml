@@ -672,4 +672,5 @@
     <string name="jump_to">...에 건너뛰기</string>
     <string name="show_video_thumbnails_summary">목록으로 비디오 섬네일을 표시하기</string>
     <string name="show_video_thumbnails">비디오 섬네일</string>
+    <string name="cloud">Cloud</string>
 </resources>

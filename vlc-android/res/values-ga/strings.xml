@@ -449,4 +449,5 @@
     <string name="report_a_bug">Tuairiscigh fabht</string>
     <string name="report_a_crash">Tuairiscigh cliseadh</string>
     <string name="describe_crash">Inis dúinn conas mar a tharla an cliseadh sin</string>
+    <string name="cloud">Cloud</string>
 </resources>

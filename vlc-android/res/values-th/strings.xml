@@ -548,4 +548,5 @@
     <string name="dialog_sd_wizard">แสดงวิธีการ</string>
     <string name="renderers_disconnect">ยกเลิกการเชื่อมต่อ</string>
     <string name="next">ถัดไป</string>
+    <string name="cloud">Cloud</string>
 </resources>

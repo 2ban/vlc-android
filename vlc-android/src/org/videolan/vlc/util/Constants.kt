@@ -38,6 +38,7 @@ const val ID_DIRECTORIES = "directories"
 const val ID_HISTORY = "history"
 const val ID_MRL = "mrl"
 const val ID_PREFERENCES = "preferences"
+const val ID_CLOUD = "cloud"
 
 const val ACTIVITY_RESULT_PREFERENCES = 1
 const val ACTIVITY_RESULT_OPEN = 2

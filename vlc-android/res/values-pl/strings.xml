@@ -730,4 +730,5 @@
     <string name="video_group_size_summary">Grupuj według %s pierwszych liter</string>
     <string name="video_group_size">Grupuj filmy według nazwy</string>
     <string name="url_copied_to_clipboard">Adres URL skopiowany do schowka</string>
+    <string name="cloud">Cloud</string>
 </resources>

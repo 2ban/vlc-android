@@ -730,4 +730,5 @@
     <string name="video_group_size_summary">Групувати за першими%s буквами</string>
     <string name="video_group_size">Групувати відео за назвою</string>
     <string name="url_copied_to_clipboard">Url скопійовано у буфер обміну</string>
+    <string name="cloud">Cloud</string>
 </resources>

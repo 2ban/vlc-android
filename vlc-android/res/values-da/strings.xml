@@ -700,4 +700,5 @@
     <string name="report_a_bug">Rapportér en fejl</string>
     <string name="report_a_crash">Rapportér et nedbrud</string>
     <string name="describe_crash">Beskriv venligst hvordan nedbruddet skete</string>
+    <string name="cloud">Cloud</string>
 </resources>
