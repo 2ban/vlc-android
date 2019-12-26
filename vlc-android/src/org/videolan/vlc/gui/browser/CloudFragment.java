@@ -11,20 +11,13 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.jetbrains.annotations.NotNull;
+import org.json.JSONException;
 import org.videolan.vlc.R;
 import org.videolan.vlc.cloud.CloudApi;
-import org.videolan.vlc.cloud.OnTokenReceivedListener;
 import org.videolan.vlc.gui.browser.dummy.DummyContent;
 import org.videolan.vlc.gui.browser.dummy.DummyContent.DummyItem;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import okhttp3.Cookie;
-import okhttp3.CookieJar;
-import okhttp3.HttpUrl;
-import okhttp3.OkHttpClient;
+import java.io.IOException;
 
 /**
  * A fragment representing a list of Items.
@@ -32,14 +25,14 @@ import okhttp3.OkHttpClient;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class CloudFragment extends Fragment implements OnTokenReceivedListener {
+public class CloudFragment extends Fragment implements CloudApi.OnFileListUpdatedListener {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
-    private String token = null;
+    private CloudApi api = null;
     MyCloudRecyclerViewAdapter adapter = null;
 
     /**
@@ -66,7 +59,8 @@ public class CloudFragment extends Fragment implements OnTokenReceivedListener {
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
-        requestToken();
+        api = new CloudApi(this);
+        api.requestToken();
     }
 
     @Override
@@ -108,8 +102,16 @@ public class CloudFragment extends Fragment implements OnTokenReceivedListener {
     }
 
     @Override
-    public void onTokenReceived(CloudApi api) {
-        api.getToken();
+    public void onFileListUpdated(CloudApi api) {
+        if (adapter != null) {
+            try {
+                api.listFilesInDirectory("/");
+                adapter.notifyDataSetChanged();
+            } catch (IOException | JSONException e) {
+                e.printStackTrace();
+            }
+
+        }
     }
 
     /**

@@ -26,10 +26,10 @@ public class CloudApi implements Callback {
 
     private final OkHttpClient client;
     private String token;
-    private OnTokenReceivedListener listener;
+    private OnFileListUpdatedListener listener;
 
 
-    public CloudApi(OnTokenReceivedListener listener) {
+    public CloudApi(OnFileListUpdatedListener listener) {
         this.listener = listener;
         client = new OkHttpClient.Builder().cookieJar(new CookieJar() {
 
@@ -63,16 +63,13 @@ public class CloudApi implements Callback {
                 JSONObject body = jObject.getJSONObject("body");
                 token = body.getString("token");
 
-                listener.onTokenReceived(this);
+                listener.onFileListUpdated(this);
 
-                Request folderRequest = new Request.Builder()
-                        .url("https://cloud.mail.ru/api/v2/folder?token=aGk1VKdhfP1mMUqVnzjQ9RbAqd68i25s&home=/")
-                        .get()
-                        .build();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
+
     }
 
     public String getToken() {
@@ -154,13 +151,18 @@ public class CloudApi implements Callback {
         for (int i = 0; i < array.length(); i++) {
             JSONObject o = array.getJSONObject(i);
             CloudFile file = new CloudFile(o.getString("name"),
-                    obj.getString("type"),
-                    obj.getString("home"));
+                    o.getString("type"),
+                    o.getString("home"));
             list.add(file);
         }
 
         return list;
 
     }
+
+    public interface OnFileListUpdatedListener {
+        void onFileListUpdated(CloudApi api);
+    }
+
 
 }
