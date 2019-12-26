@@ -130,8 +130,7 @@ public class CloudApi implements Callback {
     }
 
 
-    public List<CloudFile> listFilesInDirectory(String dir) throws IOException, JSONException {
-        List<CloudFile> list = new ArrayList<>();
+    public void listFilesInDirectory(Callback fragment, String dir) throws IOException, JSONException {
         HttpUrl.Builder httpBuilder = HttpUrl.parse("https://cloud.mail.ru/api/v2/folder").newBuilder();
         httpBuilder.addQueryParameter("token", token);
         httpBuilder.addQueryParameter("home", dir);
@@ -142,21 +141,7 @@ public class CloudApi implements Callback {
                 .build();
 
 
-        Response response = client.newCall(requestFolder).execute();
-
-        JSONObject obj = new JSONObject(getResponseText(response));
-        JSONObject body = obj.getJSONObject("body");
-        JSONArray array = body.getJSONArray("list");
-
-        for (int i = 0; i < array.length(); i++) {
-            JSONObject o = array.getJSONObject(i);
-            CloudFile file = new CloudFile(o.getString("name"),
-                    o.getString("type"),
-                    o.getString("home"));
-            list.add(file);
-        }
-
-        return list;
+        client.newCall(requestFolder).enqueue(fragment);
 
     }
 

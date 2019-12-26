@@ -8,26 +8,29 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.videolan.vlc.R;
+import org.videolan.vlc.cloud.CloudFile;
 import org.videolan.vlc.gui.browser.CloudFragment.OnListFragmentInteractionListener;
-import org.videolan.vlc.gui.browser.dummy.DummyContent.DummyItem;
 
 import java.util.List;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
+ * {@link RecyclerView.Adapter} that can display a {@link CloudFile} and makes a call to the
  * specified {@link OnListFragmentInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */
 public class MyCloudRecyclerViewAdapter extends RecyclerView.Adapter<MyCloudRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
+    private List<CloudFile> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MyCloudRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+    public MyCloudRecyclerViewAdapter(List<CloudFile> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
 
+    public void updateList(List<CloudFile> list){
+        mValues = list;
+    }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -39,7 +42,7 @@ public class MyCloudRecyclerViewAdapter extends RecyclerView.Adapter<MyCloudRecy
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
+        holder.mIdView.setText(mValues.get(position).home);
         holder.mContentView.setText(mValues.get(position).name);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
@@ -63,7 +66,7 @@ public class MyCloudRecyclerViewAdapter extends RecyclerView.Adapter<MyCloudRecy
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public DummyItem mItem;
+        public CloudFile mItem;
 
         public ViewHolder(View view) {
             super(view);

@@ -40,6 +40,7 @@ import org.videolan.medialibrary.interfaces.Medialibrary
 import org.videolan.vlc.BuildConfig
 import org.videolan.vlc.R
 import org.videolan.vlc.StartActivity
+import org.videolan.vlc.cloud.CloudFile
 import org.videolan.vlc.extensions.ExtensionManagerService
 import org.videolan.vlc.extensions.ExtensionsManager
 import org.videolan.vlc.gui.audio.AudioBrowserFragment
@@ -65,8 +66,8 @@ class MainActivity : ContentActivity(),
         ExtensionManagerService.ExtensionManagerActivity,
         INavigator by Navigator(), CloudFragment.OnListFragmentInteractionListener
 {
-    override fun onListFragmentInteraction(item: DummyContent.DummyItem?) {
-
+    override fun onListFragmentInteraction(item: CloudFile?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     var refreshing: Boolean = false

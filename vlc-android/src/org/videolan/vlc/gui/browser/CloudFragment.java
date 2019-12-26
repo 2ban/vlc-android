@@ -11,13 +11,24 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.jetbrains.annotations.NotNull;
+import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 import org.videolan.vlc.R;
 import org.videolan.vlc.cloud.CloudApi;
+import org.videolan.vlc.cloud.CloudFile;
 import org.videolan.vlc.gui.browser.dummy.DummyContent;
-import org.videolan.vlc.gui.browser.dummy.DummyContent.DummyItem;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 /**
  * A fragment representing a list of Items.
@@ -25,7 +36,7 @@ import java.io.IOException;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class CloudFragment extends Fragment implements CloudApi.OnFileListUpdatedListener {
+public class CloudFragment extends Fragment implements CloudApi.OnFileListUpdatedListener, Callback {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -77,7 +88,10 @@ public class CloudFragment extends Fragment implements CloudApi.OnFileListUpdate
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            adapter = new MyCloudRecyclerViewAdapter(DummyContent.ITEMS, mListener);
+            final CloudFile file = new CloudFile("1", "2", "3");
+            adapter = new MyCloudRecyclerViewAdapter(new ArrayList<CloudFile>() {{
+                add(file);
+            }}, mListener);
             recyclerView.setAdapter(adapter);
         }
         return view;
@@ -102,16 +116,13 @@ public class CloudFragment extends Fragment implements CloudApi.OnFileListUpdate
     }
 
     @Override
-    public void onFileListUpdated(CloudApi api) {
-        if (adapter != null) {
-            try {
-                api.listFilesInDirectory("/");
-                adapter.notifyDataSetChanged();
-            } catch (IOException | JSONException e) {
-                e.printStackTrace();
-            }
-
+    public void onFileListUpdated(final CloudApi api) {
+        try {
+            api.listFilesInDirectory(this, "/");
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
         }
+
     }
 
     /**
@@ -126,8 +137,45 @@ public class CloudFragment extends Fragment implements CloudApi.OnFileListUpdate
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(CloudFile item);
     }
 
+    @Override
+    public void onFailure(@NotNull Call call, @NotNull IOException e) {
 
+    }
+
+    @Override
+    public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+        try {
+            ResponseBody contentBody = response.body();
+            if (contentBody != null) {
+                final List<CloudFile> files = new ArrayList<>();
+                JSONObject obj = new JSONObject(contentBody.string());
+                JSONObject body = obj.getJSONObject("body");
+                JSONArray array = body.getJSONArray("list");
+
+                for (int i = 0; i < array.length(); i++) {
+                    JSONObject o = array.getJSONObject(i);
+                    CloudFile file = new CloudFile(o.getString("name"),
+                            o.getString("type"),
+                            o.getString("home"));
+                    files.add(file);
+                }
+
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        adapter.updateList(files);
+                        adapter.notifyDataSetChanged();
+                    }
+                });
+
+            }
+
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
 }
